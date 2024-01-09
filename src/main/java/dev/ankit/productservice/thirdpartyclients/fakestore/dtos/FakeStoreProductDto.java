@@ -1,4 +1,4 @@
-package dev.ankit.productservice.dtos;
+package dev.ankit.productservice.thirdpartyclients.fakestore.dtos;
 
 import lombok.Getter;
 import lombok.Setter;

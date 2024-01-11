@@ -1,4 +1,12 @@
 package dev.ankit.productservice.models;
 
-public class Category {
+import jakarta.persistence.Entity;
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
+@Entity
+public class Category extends BaseModel {
+    private String name;
 }

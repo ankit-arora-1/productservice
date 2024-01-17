@@ -4,8 +4,10 @@ import dev.ankit.productservice.inheritanceexample.joinedtable.MentorRepository;
 import dev.ankit.productservice.inheritanceexample.joinedtable.Student;
 import dev.ankit.productservice.inheritanceexample.joinedtable.StudentRepository;
 import dev.ankit.productservice.models.Category;
+import dev.ankit.productservice.models.Price;
 import dev.ankit.productservice.models.Product;
 import dev.ankit.productservice.repositories.CategoryRepository;
+import dev.ankit.productservice.repositories.PriceRepository;
 import dev.ankit.productservice.repositories.ProductRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -24,14 +26,18 @@ public class ProductServiceApplication implements CommandLineRunner {
 	private ProductRepository productRepository;
 	private CategoryRepository categoryRepository;
 
+	private PriceRepository priceRepository;
+
 	public ProductServiceApplication(MentorRepository mentorRepository,
 									 StudentRepository studentRepository,
 									 ProductRepository productRepository,
-									 CategoryRepository categoryRepository) {
+									 CategoryRepository categoryRepository,
+									 PriceRepository priceRepository) {
 		this.mentorRepository = mentorRepository;
 		this.studentRepository = studentRepository;
 		this.productRepository = productRepository;
 		this.categoryRepository = categoryRepository;
+		this.priceRepository = priceRepository;
 	}
 
 	public static void main(String[] args) {
@@ -79,30 +85,34 @@ public class ProductServiceApplication implements CommandLineRunner {
 //		studentRepository.save(student);
 
 
-//		Category category = new Category();
-//		category.setName("electronics");
+		Category category = new Category();
+		category.setName("electronics");
+
+		Category savedCategory = categoryRepository.save(category);
+
+		Price price = new Price("Rupee", 10.0);
+		// Price savedPrice = priceRepository.save(price);
+
+		Product product = new Product();
+		product.setTitle("iPhone");
+		product.setImage("image url");
+		product.setDescription("Best phone ever");
+		product.setCategory(savedCategory);
+		product.setPrice(price);
 //
-//		Category savedCategory = categoryRepository.save(category);
 //
-//		Product product = new Product();
-//		product.setTitle("iPhone");
-//		product.setPrice(100.0);
-//		product.setImage("image url");
-//		product.setDescription("Best phone ever");
-//		product.setCategory(savedCategory);
+		productRepository.save(product);
+
+//		Optional<Category> categoryOptional = categoryRepository.
+//				findById(UUID.fromString("02600b88-43f3-4341-8bff-ec665a17c21c"));
 //
-//		productRepository.save(product);
+//
+//		if(!categoryOptional.isEmpty()) {
+//			Category category = categoryOptional.get();
+//			System.out.println(category.getProduct());
+//		}
 
-		Optional<Category> categoryOptional = categoryRepository.
-				findById(UUID.fromString("02600b88-43f3-4341-8bff-ec665a17c21c"));
-
-
-		if(!categoryOptional.isEmpty()) {
-			Category category = categoryOptional.get();
-			System.out.println(category.getProduct());
-		}
-
-
+//		productRepository.deleteById(UUID.fromString("8ffdd9b4-acd1-48a3-9c44-ec92c2b4e5b1"));
 
 	}
 

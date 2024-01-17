@@ -94,7 +94,7 @@ public class ProductServiceApplication implements CommandLineRunner {
 		// Price savedPrice = priceRepository.save(price);
 
 		Product product = new Product();
-		product.setTitle("iPhone");
+		product.setTitle("iPhone4");
 		product.setImage("image url");
 		product.setDescription("Best phone ever");
 		product.setCategory(savedCategory);
@@ -102,6 +102,9 @@ public class ProductServiceApplication implements CommandLineRunner {
 //
 //
 		productRepository.save(product);
+
+		Product product1 = productRepository.findByTitle("iPhone4");
+		System.out.println(product1);
 
 //		Optional<Category> categoryOptional = categoryRepository.
 //				findById(UUID.fromString("02600b88-43f3-4341-8bff-ec665a17c21c"));

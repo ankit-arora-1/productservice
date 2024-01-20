@@ -14,8 +14,8 @@ public interface ProductRepository extends JpaRepository<Product, UUID> {
     @Query(value = "select * from product where title = :title", nativeQuery = true)
     Product findByTitle(String title);
 
-    @Query(value = "select Product from Product where Product.title = :title", nativeQuery = false)
-    Product findByTitle2(String title);
+//    @Query(value = "select Product from Product where Product.title = :title", nativeQuery = false)
+//    Product findByTitle2(String title);
 }
 
 // added a comment

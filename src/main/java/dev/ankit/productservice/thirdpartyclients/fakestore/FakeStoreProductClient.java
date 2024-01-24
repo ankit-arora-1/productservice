@@ -50,7 +50,8 @@ public class FakeStoreProductClient {
         FakeStoreProductDto fakeStoreProductDto = response.getBody();
 
         if(fakeStoreProductDto == null) {
-            throw new NotFoundException("Product with id: " + id + " not found");
+            return null;
+            // throw new NotFoundException("Product with id: " + id + " not found");
         }
 
         return fakeStoreProductDto;

@@ -14,6 +14,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.when;
 
 @SpringBootTest
@@ -36,8 +37,8 @@ public class FakeStoreProductClientTest {
         ResponseEntity<FakeStoreProductDto> responseMock =
                 new ResponseEntity<>(null, HttpStatus.OK);
 
-//        when(restTemplate.getForEntity(any(String.class), any(FakeStoreProductDto.class), 1L))
-//                .thenReturn(responseMock);
+        when(restTemplate.getForEntity(any(String.class), eq(FakeStoreProductDto.class), any(Long.class)))
+                .thenReturn(responseMock);
 
         FakeStoreProductDto response = fakeStoreProductClient.getProductById(1L);
 

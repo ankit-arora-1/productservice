@@ -20,25 +20,25 @@ import java.util.UUID;
 @SpringBootApplication
 public class ProductServiceApplication implements CommandLineRunner {
 
-	private MentorRepository mentorRepository;
-	private StudentRepository studentRepository;
-
-	private ProductRepository productRepository;
-	private CategoryRepository categoryRepository;
-
-	private PriceRepository priceRepository;
-
-	public ProductServiceApplication(MentorRepository mentorRepository,
-									 StudentRepository studentRepository,
-									 ProductRepository productRepository,
-									 CategoryRepository categoryRepository,
-									 PriceRepository priceRepository) {
-		this.mentorRepository = mentorRepository;
-		this.studentRepository = studentRepository;
-		this.productRepository = productRepository;
-		this.categoryRepository = categoryRepository;
-		this.priceRepository = priceRepository;
-	}
+//	private MentorRepository mentorRepository;
+//	private StudentRepository studentRepository;
+//
+//	private ProductRepository productRepository;
+//	private CategoryRepository categoryRepository;
+//
+//	private PriceRepository priceRepository;
+//
+//	public ProductServiceApplication(MentorRepository mentorRepository,
+//									 StudentRepository studentRepository,
+//									 ProductRepository productRepository,
+//									 CategoryRepository categoryRepository,
+//									 PriceRepository priceRepository) {
+//		this.mentorRepository = mentorRepository;
+//		this.studentRepository = studentRepository;
+//		this.productRepository = productRepository;
+//		this.categoryRepository = categoryRepository;
+//		this.priceRepository = priceRepository;
+//	}
 
 	public static void main(String[] args) {
 		SpringApplication.run(ProductServiceApplication.class, args);

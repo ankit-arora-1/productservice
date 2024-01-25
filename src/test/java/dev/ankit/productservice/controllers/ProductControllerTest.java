@@ -12,7 +12,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 @SpringBootTest
 public class ProductControllerTest {
@@ -93,8 +93,18 @@ public class ProductControllerTest {
 
         Assertions.assertEquals(response.getId(), 1L);
         Assertions.assertEquals(response.getTitle(), "iPhone");
+    }
 
-        // Break for 5 minutes: 8:35 -> 8:40
+    @Test
+    public void testGetProductById2() throws NotFoundException {
+        when(productServiceMock.getProductById(any()))
+                .thenReturn(null);
+
+        GenericProductDto response = productController.getProductById(null);
+
+        verify(productServiceMock, times(0)).getProductById(null);
+
+
     }
 
 }

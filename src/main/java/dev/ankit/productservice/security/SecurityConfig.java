@@ -10,18 +10,18 @@ import org.springframework.security.web.SecurityFilterChain;
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
-//    @Bean
-//    public SecurityFilterChain defaultSecurityFilterChain(HttpSecurity http)
-//            throws Exception {
-//        http
-//                .authorizeHttpRequests((authorize) -> authorize
-//                        .requestMatchers("/products").hasAuthority("admin")
-//                        .anyRequest().permitAll()
-//                )
-//                // Form login handles the redirect to the login page from the
-//                // authorization server filter chain
-//                .formLogin(Customizer.withDefaults());
-//
-//        return http.build();
-//    }
+    @Bean
+    public SecurityFilterChain defaultSecurityFilterChain(HttpSecurity http)
+            throws Exception {
+        http
+                .authorizeHttpRequests((authorize) -> authorize
+                        .requestMatchers("/actuator/health").permitAll()
+                        .anyRequest().permitAll()
+                )
+                // Form login handles the redirect to the login page from the
+                // authorization server filter chain
+                .formLogin(Customizer.withDefaults());
+
+        return http.build();
+    }
 }

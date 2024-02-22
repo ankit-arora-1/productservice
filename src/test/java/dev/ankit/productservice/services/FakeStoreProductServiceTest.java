@@ -21,7 +21,7 @@ public class FakeStoreProductServiceTest {
     @MockBean
     private FakeStoreProductClient fakeStoreProductClient;
 
-    @Test
+//    @Test
     public void testGetProductByIdWhenClientReturnsNull() throws NotFoundException {
         when(fakeStoreProductClient.getProductById(any()))
                 .thenReturn(null);

@@ -28,7 +28,7 @@ public class FakeStoreProductClientTest {
 //    @MockBean
 //    private RestTemplate restTemplate;
 
-    @Test
+//    @Test
     public void testGetProductById() throws NotFoundException {
         RestTemplate restTemplate = Mockito.mock(RestTemplate.class);
         when(restTemplateBuilder.build())

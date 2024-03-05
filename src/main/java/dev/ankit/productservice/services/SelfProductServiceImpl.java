@@ -3,6 +3,8 @@ package dev.ankit.productservice.services;
 import dev.ankit.productservice.dtos.GenericProductDto;
 import dev.ankit.productservice.models.Product;
 import dev.ankit.productservice.repositories.ProductRepository;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

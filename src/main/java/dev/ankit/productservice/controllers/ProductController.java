@@ -7,6 +7,7 @@ import dev.ankit.productservice.models.Product;
 import dev.ankit.productservice.security.JwtData;
 import dev.ankit.productservice.security.TokenValidator;
 import dev.ankit.productservice.services.ProductService;
+import jakarta.annotation.Nullable;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.web.client.RestTemplateBuilder;
@@ -33,7 +34,7 @@ public class ProductController {
 
     @GetMapping("{id}")
     public GenericProductDto getProductById(
-            @RequestHeader(HttpHeaders.AUTHORIZATION) String authToken,
+            @Nullable @RequestHeader(HttpHeaders.AUTHORIZATION) String authToken,
             @PathVariable("id") Long id) throws NotFoundException {
         System.out.println("Calling methods");
         System.out.println("Calling methods again");
